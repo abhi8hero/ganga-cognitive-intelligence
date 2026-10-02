@@ -143,6 +143,11 @@ No other backend, API key, or database is required. **All data processing is 100
 | `Ctrl/Cmd + Z` | Undo |
 | `Ctrl/Cmd + Shift + Z` | Redo |
 
-## License
+## 👨‍💻 Designed By
+**Abhishek Ugare**
 
-Internal project — Ganga Cognitive Intelligence · ADCP Platform.
+- Email: abhishekugare1289@gmail.com
+- LinkedIn: https://www.linkedin.com/in/abhishek-ugare-a289s85k
+- Portfolio: https://abhi8hero.github.io/portfolio-abhishek_ugare/
+
+Ganga Cognitive Intelligence · ADCP Platform · & Team
