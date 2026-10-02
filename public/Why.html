@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.png" />
+<title>Ganga Cognitive Intelligence</title>
+
+<style>
+:root {
+    --bg: #020914;
+    --bg2: #061426;
+    --card: rgba(7, 22, 40, 0.88);
+    --border: #193653;
+    --blue: #2698ff;
+    --cyan: #38d5ff;
+    --gold: #f2c66d;
+    --white: #f2f7ff;
+    --text: #d7e5f5;
+    --muted: #91a7c0;
+    --glow: rgba(38,152,255,.28);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 50% 0%, #0a2546 0%, #030b18 38%, #010610 100%);
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", sans-serif;
+    line-height: 1.75;
+}
+
+/* subtle background grid */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .28;
+    background-image:
+        linear-gradient(rgba(60,150,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(60,150,255,.035) 1px, transparent 1px);
+    background-size: 45px 45px;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 68px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    background: rgba(2, 9, 19, .86);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(80,150,220,.14);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.logo-main {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.logo-text {
+    font-size: 10px;
+    line-height: 1.15;
+    color: #9db3ca;
+}
+
+.logo-text strong {
+    color: var(--cyan);
+}
+
+.nav {
+    display: flex;
+    gap: 8px;
+}
+
+.nav button {
+    border: 1px solid #244360;
+    background: #07172a;
+    color: #c8d8e9;
+    border-radius: 8px;
+    padding: 8px 13px;
+    cursor: pointer;
+}
+
+.nav button:hover {
+    border-color: var(--blue);
+    color: white;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 82vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 90px 20px 70px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.glow.one {
+    width: 320px;
+    height: 320px;
+    left: 5%;
+    top: 10%;
+
+    background: rgba(0,110,255,.08);
+    box-shadow: 0 0 130px rgba(0,120,255,.22);
+}
+
+.glow.two {
+    width: 400px;
+    height: 400px;
+    right: 3%;
+    bottom: -100px;
+
+    background: rgba(0,210,255,.05);
+    box-shadow: 0 0 150px rgba(0,210,255,.14);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 6px 13px;
+
+    border: 1px solid #25517c;
+    border-radius: 999px;
+
+    background: #07192d;
+
+    color: #72caff;
+    font-size: 12px;
+}
+
+.hero h1 {
+    margin: 24px 0 18px;
+
+    font-size: clamp(45px, 7vw, 80px);
+    line-height: 1.02;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    color: var(--blue);
+    text-shadow: 0 0 35px rgba(38,152,255,.45);
+}
+
+.hero p {
+    max-width: 720px;
+    margin: auto;
+
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.primary-btn {
+    margin-top: 28px;
+
+    padding: 13px 20px;
+
+    border: 0;
+    border-radius: 9px;
+
+    color: #001326;
+    background: linear-gradient(135deg, #2492ff, #23c1ff);
+
+    font-weight: 800;
+    cursor: pointer;
+
+    box-shadow: 0 0 35px rgba(38,152,255,.25);
+}
+
+.primary-btn:hover {
+    transform: translateY(-1px);
+}
+
+/* ================= FLOW ================= */
+
+.flow {
+    max-width: 1100px;
+    margin: -5px auto 70px;
+
+    padding: 0 5%;
+
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.flow-item {
+    padding: 13px 7px;
+
+    text-align: center;
+
+    background: #07172a;
+    border: 1px solid #183652;
+    border-radius: 10px;
+
+    color: #a9c0d8;
+    font-size: 11px;
+}
+
+.flow-item strong {
+    display: block;
+    color: white;
+    font-size: 12px;
+}
+
+.flow-item:last-child {
+    border-color: #2784bd;
+}
+
+/* ================= MAIN ================= */
+
+.section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 80px 5%;
+}
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    margin: 12px 0;
+
+    font-size: 38px;
+    line-height: 1.15;
+}
+
+.section-title p {
+    color: var(--muted);
+}
+
+/* reading sequence */
+
+.reading-order {
+    display: flex;
+    gap: 8px;
+
+    overflow-x: auto;
+
+    padding: 8px 0 25px;
+}
+
+.reading-order span {
+    white-space: nowrap;
+
+    padding: 7px 12px;
+
+    border-radius: 999px;
+
+    background: #07192d;
+    border: 1px solid #193b5b;
+
+    color: #91b2d0;
+    font-size: 12px;
+}
+
+.reading-order span:first-child {
+    color: white;
+    border-color: var(--blue);
+}
+
+/* ================= CARDS ================= */
+
+.card {
+    margin: 20px 0;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(9,28,49,.94),
+            rgba(4,13,26,.94)
+        );
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    box-shadow: 0 20px 70px rgba(0,0,0,.32);
+}
+
+.card:hover {
+    border-color: #27567b;
+}
+
+.card h3 {
+    margin-top: 0;
+
+    color: #75d7ff;
+
+    font-size: 21px;
+}
+
+.card p {
+    color: var(--text);
+}
+
+.card strong {
+    color: white;
+}
+
+.quote {
+    margin: 22px 0;
+
+    padding: 15px 20px;
+
+    border-left: 3px solid var(--blue);
+
+    background: #061529;
+
+    border-radius: 0 10px 10px 0;
+
+    color: #e4f0ff;
+}
+
+/* ================= FLOW SEQUENCE ================= */
+
+.sequence {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 25px 0;
+}
+
+.step {
+    padding: 10px 15px;
+
+    background: #081b30;
+
+    border: 1px solid #214765;
+
+    border-radius: 9px;
+
+    color: #e8f5ff;
+
+    font-size: 13px;
+}
+
+.arrow {
+    color: var(--cyan);
+    font-size: 20px;
+}
+
+/* ================= QUESTIONS ================= */
+
+.questions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.question {
+    padding: 20px;
+
+    background: #061527;
+
+    border: 1px solid #183854;
+
+    border-radius: 14px;
+}
+
+.question-number {
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.question h4 {
+    margin: 6px 0;
+
+    color: white;
+}
+
+.question p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ================= LANGUAGES ================= */
+
+.language-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin: 25px 0;
+}
+
+.language-buttons button {
+    padding: 9px 15px;
+
+    border-radius: 8px;
+
+    background: #07172a;
+    border: 1px solid #244360;
+
+    color: #b9cce0;
+
+    cursor: pointer;
+}
+
+.language-buttons button:hover,
+.language-buttons button.active {
+    color: white;
+    background: #167fd3;
+    border-color: #35baff;
+}
+
+.translation {
+    display: none;
+}
+
+.translation.active {
+    display: block;
+}
+
+.translation h3 {
+    color: #75d7ff;
+    margin-top: 35px;
+}
+
+.translation p {
+    color: var(--text);
+}
+
+/* ================= FINAL ================= */
+
+.final-card {
+    text-align: center;
+
+    padding: 45px 30px;
+
+    border-color: #287db1;
+
+    box-shadow:
+        0 0 60px rgba(30,150,255,.1),
+        0 20px 70px rgba(0,0,0,.3);
+}
+
+.final-card h2 {
+    color: white;
+}
+
+.final-definition {
+    font-size: 21px;
+    color: white;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+
+    padding: 60px 20px;
+
+    color: #7188a1;
+
+    border-top: 1px solid #142d46;
+}
+
+/* ================= TOP BUTTON ================= */
+
+.back-top {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #07172a;
+    border: 1px solid #2b587c;
+
+    color: white;
+
+    cursor: pointer;
+
+    display: none;
+
+    z-index: 50;
+}
+
+.back-top.visible {
+    display: block;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 800px) {
+
+    .nav button {
+        display: none;
+    }
+
+    .flow {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .questions {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+}
+
+@media(max-width: 520px) {
+
+    .hero {
+        min-height: 75vh;
+    }
+
+    .hero h1 {
+        font-size: 44px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .flow {
+        grid-template-columns: 1fr;
+    }
+
+    .questions {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 21px;
+    }
+
+    .section {
+        padding-top: 60px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <!-- Clicking GCI opens the philosophy -->
+    <a href="#philosophy" class="logo">
+
+        <span class="logo-main">GCI</span>
+
+        <span class="logo-text">
+            Ganga Cognitive<br>
+            <strong>Intelligence</strong>
+        </span>
+
+    </a>
+
+    <nav class="nav">
+        <button onclick="goTo('philosophy')">
+            Why GCI?
+        </button>
+
+        <button onclick="goTo('languages')">
+            Translations
+        </button>
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+    <div class="hero-content">
+
+        <span class="badge">
+            Ganga Cognitive Intelligence · Philosophy
+        </span>
+
+        <h1>
+            From Information<br>
+            to <span>Deeper Intelligence</span>
+        </h1>
+
+        <p>
+            GCI is more than information processing.
+            It represents a continuous flow between perception,
+            thought, reasoning, action and reflection.<br><br>
+            Not every anomaly requires an action.<br>
+            Not every action requires an agent.<br> 
+            Not every decision requires the same cognitive depth.
+        </p>
+
+        <button
+            class="primary-btn"
+            onclick="goTo('philosophy')"
+        >
+            Explore the meaning ↓
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= COGNITIVE FLOW ================= -->
+
+<div class="flow">
+
+    <div class="flow-item">
+        <strong>Information</strong>
+        माहिती
+    </div>
+
+    <div class="flow-item">
+        <strong>Understanding</strong>
+        आकलन
+    </div>
+
+    <div class="flow-item">
+        <strong>Thought</strong>
+        विचार
+    </div>
+
+    <div class="flow-item">
+        <strong>Reflection</strong>
+        चिंतन
+    </div>
+
+    <div class="flow-item">
+        <strong>Reasoning</strong>
+        तर्क
+    </div>
+
+    <div class="flow-item">
+        <strong>Decision</strong>
+        निर्णय
+    </div>
+
+    <div class="flow-item">
+        <strong>Action</strong>
+        कृती
+    </div>
+
+</div>
+
+
+<!-- ================= PHILOSOPHY ================= -->
+
+<section id="philosophy" class="section">
+
+    <div class="section-title">
+
+        <span class="badge">
+            01 · WHY GCI?
+        </span>
+
+        <h2>
+            The Philosophy Behind the Name
+        </h2>
+
+        <p>
+            Follow the sequence from existence to inner dimensions,
+            perception, Shiva, Ganga, karma and finally cognitive intelligence.
+        </p>
+
+    </div>
+
+
+    <!-- Reading order -->
+
+    <div class="reading-order">
+
+        <span>1. Five Elements</span>
+        <span>2. Seven Chakras</span>
+        <span>3. Nine Rasas</span>
+        <span>4. Shiva</span>
+        <span>5. Ganga</span>
+        <span>6. Karma</span>
+        <span>7. Cognitive Intelligence</span>
+        <span>8. Reflection</span>
+
+    </div>
+
+
+    <!-- 01 -->
+
+    <article class="card">
+
+        <h3>
+            01 · Existence — Pancha Mahabhutas
+        </h3>
+
+        <p>
+            Human existence, according to Indian philosophical thought,
+            emerges from the
+            <strong>Pancha Mahabhutas — the five great elements</strong>:
+            Earth, Water, Fire, Air and Space.
+        </p>
+
+        <p>
+            These provide the philosophical foundation of existence:
+            the world in which experience and action become possible.
+        </p>
+
+    </article>
+
+
+    <!-- 02 -->
+
+    <article class="card">
+
+        <h3>
+            02 · The Inner System — Seven Chakras
+        </h3>
+
+        <p>
+            To exist, experience and act, the human being is represented
+            through the <strong>seven chakras</strong>.
+            Each reflects a different dimension of the inner being.<br>
+            <strong>Muladhara, Svadhisthana, Manipura, Anahata, Vishuddha, Ajna and Sahasrara.</strong>
+        </p>
+
+        <p>
+            But existence alone is not enough.
+        </p>
+
+        <p>
+            A human being does not merely exist —
+            a human being
+            <strong>
+                thinks, feels, experiences, questions,
+                interprets and acts.
+            </strong>
+        </p>
+
+    </article>
+
+
+    <!-- 03 -->
+
+    <article class="card">
+
+        <h3>
+            03 · Perception — Nine Rasas
+        </h3>
+
+        <p>
+            The <strong>nine rasas</strong> represent different dimensions
+            through which a human being perceives and processes life.<br>
+            <strong>Shringara Rasa, Hasya Rasa, Karuna Rasa, Raudra Rasa, Veera Rasa, Bhayanaka Rasa, Bibhatsa Rasa, Adbhuta Rasa and Shanta Rasa.
+
+
+
+</strong>
+        </p>
+
+        <p>
+            They influence how we experience the world,
+            how we interpret situations,
+            how we respond to them,
+            and ultimately how our thoughts become actions.
+        </p>
+
+    </article>
+
+
+    <!-- 04 -->
+
+    <article class="card">
+
+        <h3>
+            04 · Shiva — Stillness and Intensity
+        </h3>
+
+        <p>
+            At the center of this philosophy stands
+            <strong>Shiva</strong>.
+        </p>
+
+        <p>
+            Shiva represents the highest state of stillness
+            and the highest state of intensity —
+            <strong>the most peaceful and the most fierce.</strong>
+        </p>
+
+        <div class="quote">
+
+            These two seemingly opposite states exist
+            within the same consciousness.
+
+        </div>
+
+        <p>
+            The ability to remain completely still when stillness
+            is required, and to become completely fierce when
+            action is required, represents a profound level of control.
+        </p>
+
+        <p>
+            But how can these different dimensions exist together?
+        </p>
+
+        <p>
+            How can the seven chakras and nine rasas work together
+            without becoming disconnected?
+        </p>
+
+    </article>
+
+
+    <!-- 05 -->
+
+    <article class="card">
+
+        <h3>
+            05 · Ganga — The Connecting Flow
+        </h3>
+
+        <p>
+            This is where <strong>Ganga</strong> enters the philosophy.
+        </p>
+
+        <p>
+            Ganga flows through Shiva's matted hair.
+        </p>
+
+        <p>
+            She is not merely a river in this philosophy.
+            She represents a
+            <strong>
+                continuous flow that connects,
+                binds and carries different forces together.
+            </strong>
+        </p>
+
+        <div class="quote">
+
+            <strong>
+                Ganga is the flow that connects them.
+            </strong>
+
+        </div>
+
+        <p>
+            The seven chakras and nine rasas are not isolated
+            from one another.
+        </p>
+
+    </article>
+
+
+    <!-- 06 -->
+
+    <article class="card">
+
+        <h3>
+            06 · Karma — Thought Becomes Action
+        </h3>
+
+        <div class="sequence">
+
+            <span class="step">Thought</span>
+            <span class="arrow">→</span>
+
+            <span class="step">Emotion</span>
+            <span class="arrow">→</span>
+
+            <span class="step">Intention</span>
+            <span class="arrow">→</span>
+
+            <span class="step">Action</span>
+            <span class="arrow">→</span>
+
+            <span class="step">Experience</span>
+            <span class="arrow">→</span>
+
+            <span class="step">New Thought</span>
+
+        </div>
+
+        <p>
+            Ganga flows from within the nine rasas and through
+            <strong>karma — the actions of a human being.</strong>
+        </p>
+
+        <p>
+            Thought becomes emotion.
+        </p>
+
+        <p>
+            Emotion becomes intention.
+        </p>
+
+        <p>
+            Intention becomes action.
+        </p>
+
+        <p>
+            Action creates experience.
+        </p>
+
+        <p>
+            Experience creates new thought.
+        </p>
+
+        <p>
+            This continuous movement becomes a
+            <strong>flow.</strong>
+        </p>
+
+    </article>
+
+
+    <!-- 07 -->
+
+    <article class="card">
+
+        <h3>
+            07 · Cognitive Intelligence
+        </h3>
+
+        <p>
+            Cognitive Intelligence is not simply the ability
+            to process information.
+        </p>
+
+        <p>
+            It is the ability to
+            <strong>
+                think about the process of thinking itself.
+            </strong>
+        </p>
+
+        <div class="sequence">
+
+            <span class="step">Information</span>
+            <span class="arrow">→</span>
+
+            <span class="step">Understanding</span>
+            <span class="arrow">→</span>
+
+            <span class="step">Thought</span>
+            <span class="arrow">→</span>
+
+            <span class="step">Reflection</span>
+            <span class="arrow">→</span>
+
+            <span class="step">Reasoning</span>
+            <span class="arrow">→</span>
+
+            <span class="step">Decision</span>
+            <span class="arrow">→</span>
+
+            <span class="step">Action</span>
+
+        </div>
+
+        <div class="sequence">
+
+            <span class="step">Action</span>
+            <span class="arrow">→</span>
+
+            <span class="step">Observation</span>
+            <span class="arrow">→</span>
+
+            <span class="step">Reflection</span>
+            <span class="arrow">→</span>
+
+            <span class="step">New Thought</span>
+
+        </div>
+
+    </article>
+
+
+    <!-- 08 -->
+
+    <article class="card">
+
+        <h3>
+            08 · What Should a Cognitive System Ask?
+        </h3>
+
+        <div class="questions">
+
+            <div class="question">
+                <span class="question-number">01</span>
+                <h4>What?</h4>
+                <p>What happened?</p>
+            </div>
+
+            <div class="question">
+                <span class="question-number">02</span>
+                <h4>Why?</h4>
+                <p>Why did it happen?</p>
+            </div>
+
+            <div class="question">
+                <span class="question-number">03</span>
+                <h4>Meaning?</h4>
+                <p>What does it mean?</p>
+            </div>
+
+            <div class="question">
+                <span class="question-number">04</span>
+                <h4>Dimensions?</h4>
+                <p>What are the different dimensions?</p>
+            </div>
+
+            <div class="question">
+                <span class="question-number">05</span>
+                <h4>Before?</h4>
+                <p>What should be considered before acting?</p>
+            </div>
+
+            <div class="question">
+                <span class="question-number">06</span>
+                <h4>Next?</h4>
+                <p>What could happen next?</p>
+            </div>
+
+            <div class="question">
+                <span class="question-number">07</span>
+                <h4>Action?</h4>
+                <p>What should be done?</p>
+            </div>
+
+            <div class="question">
+                <span class="question-number">08</span>
+                <h4>Learning?</h4>
+                <p>What did we learn?</p>
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- 09 -->
+
+    <article class="card">
+
+        <h3>
+            09 · How the Philosophy Comes Together
+        </h3>
+
+        <p>
+            The <strong>nine rasas</strong> represent different
+            dimensions of perception and response.
+        </p>
+
+        <p>
+            The <strong>seven chakras</strong> represent different
+            dimensions of the inner system.
+        </p>
+
+        <p>
+            <strong>Shiva</strong> represents the ability to exist
+            in complete stillness or complete intensity.
+        </p>
+
+        <p>
+            And <strong>Ganga</strong> represents the continuous flow
+            that connects and balances these dimensions.
+        </p>
+
+        <div class="quote">
+
+            <strong>
+                Ganga Cognitive Intelligence is the idea of a
+                thinking system that does not merely process information,
+                but continuously connects perception, thought,
+                reasoning, action and reflection through a unified
+                cognitive flow.
+            </strong>
+
+        </div>
+
+    </article>
+
+
+    <!-- 10 -->
+
+    <article class="card">
+
+        <h3>
+            10 · The Ultimate Vision
+        </h3>
+
+        <p>
+            The ultimate vision is not simply to create
+            a system that can calculate.
+        </p>
+
+        <p>
+            It is to create a system that can
+            <strong>
+                understand, contemplate, reason, act,
+                observe the consequences of its actions,
+                and think again.
+            </strong>
+        </p>
+
+        <p>
+            A system that can remain still when observation
+            is required.
+        </p>
+
+        <p>
+            A system that can become decisive when action
+            is required.
+        </p>
+
+        <p>
+            A system that can hold multiple dimensions of thought
+            together without losing its central purpose.
+        </p>
+
+        <div class="quote">
+
+            Just as Ganga flows through Shiva,
+            <strong>
+                cognitive flow must move through
+                the intelligence of the system.
+            </strong>
+
+        </div>
+
+    </article>
+
+
+    <!-- 11 -->
+
+    <article class="card final-card">
+
+        <h2>
+            Ganga Cognitive Intelligence
+        </h2>
+
+        <p class="final-definition">
+
+            A flow of intelligence that transforms
+            <strong>information into thought</strong>,
+            thought into <strong>understanding</strong>,
+            understanding into <strong>action</strong>,
+            and action into
+            <strong>deeper intelligence.</strong>
+
+        </p>
+
+    </article>
+
+</section>
+
+
+<!-- ================= TRANSLATIONS ================= -->
+
+<section id="languages" class="section">
+
+    <div class="section-title">
+
+        <span class="badge">
+            02 · TRANSLATIONS
+        </span>
+
+        <h2>
+            The Philosophy in Five Languages
+        </h2>
+
+        <p>
+            Select a language. Every translation follows the same
+            sequence so the meaning remains easy to understand.
+        </p>
+
+    </div>
+
+
+    <div class="language-buttons">
+
+        <button class="active" onclick="showLanguage('english', this)">
+            English
+        </button>
+
+        <button onclick="showLanguage('marathi', this)">
+            मराठी
+        </button>
+
+        <button onclick="showLanguage('hindi', this)">
+            हिन्दी
+        </button>
+
+        <button onclick="showLanguage('spanish', this)">
+            Español
+        </button>
+
+        <button onclick="showLanguage('japanese', this)">
+            日本語
+        </button>
+
+    </div>
+
+
+    <!-- ENGLISH -->
+
+    <div id="english" class="translation active">
+
+        <div class="card">
+
+            <h2>Why Ganga Cognitive Intelligence?</h2>
+
+            <h3>The Philosophy Behind the Name</h3>
+
+            <p>
+                Human existence, according to Indian philosophical thought,
+                emerges from the <strong>Pancha Mahabhutas</strong> —
+                <strong>Earth, Water, Fire, Air and Space.</strong>
+            </p>
+
+            <p>
+                The human being is represented through the
+                <strong>seven chakras</strong>, 
+                each reflecting a different dimension of the inner being.<br>
+                <strong>Root, Sacral, Solar Plexus, Heart, Throat, Third Eye and Crown.</strong>
+            </p>
+
+            <p>
+                But existence alone is not enough.
+                A human being thinks, feels, experiences,
+                questions, interprets and acts.
+            </p>
+
+            <p>
+                The <strong>nine rasas</strong> represent different
+                dimensions through which human beings perceive
+                and process life.<br>
+                <strong>Love, Laughter, Compassion, Anger, Heroism, Fear, Disgust, Wonder and Peace.</strong>
+            </p>
+
+            <p>
+                <strong>Shiva</strong> represents both the highest
+                stillness and the highest intensity.
+            </p>
+
+            <p>
+                <strong>Ganga</strong> represents the continuous flow
+                that connects these different dimensions.
+            </p>
+
+            <p>
+                Thought becomes emotion.
+                Emotion becomes intention.
+                Intention becomes action.
+                Action creates experience.
+                Experience creates new thought.
+            </p>
+
+            <p>
+                This is the foundation of
+                <strong>Ganga Cognitive Intelligence.</strong>
+            </p>
+
+            <div class="quote">
+                It is the idea of a system that continuously connects
+                perception, thought, reasoning, action and reflection.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MARATHI -->
+
+    <div id="marathi" class="translation">
+
+        <div class="card">
+
+            <h2>गंगा कॉग्निटिव्ह इंटेलिजन्स का?</h2>
+
+            <h3>नावामागील तत्त्वज्ञान</h3>
+
+            <p>
+                भारतीय तत्त्वज्ञानानुसार मानवी अस्तित्वाची उत्पत्ती
+                <strong>पंचमहाभूतांपासून</strong> झाली आहे —
+                <strong>पृथ्वी, जल, अग्नी, वायू आणि आकाश.</strong>
+            </p>
+
+            <p>
+                मानवामध्ये <strong>सप्तचक्रांची</strong> संकल्पना आहे.
+                प्रत्येक चक्र मानवी अंतर्मनाच्या एका वेगळ्या
+                आयामाचे प्रतिनिधित्व करते.<br>
+                <strong>मूलाधार, स्वाधिष्ठान, मणिपूर, अनाहत, विशुद्ध, आज्ञा आणि सहस्रार.</strong>
+            </p>
+
+            <p>
+                परंतु केवळ अस्तित्वात असणे पुरेसे नाही.
+                मानव विचार करतो, अनुभवतो, भावना जाणतो,
+                प्रश्न विचारतो, अर्थ लावतो आणि कृती करतो.
+            </p>
+
+            <p>
+                <strong>नवरस</strong> हे मानव जीवनाकडे पाहण्याच्या
+                आणि त्याचे आकलन करण्याच्या विविध आयामांचे
+                प्रतिनिधित्व करतात.<br>
+                <strong>शृंगार, हास्य, करुण, रौद्र, वीर, भयानक, बीभत्स, अद्भुत आणि शांत.</strong>
+            </p>
+
+            <p>
+                <strong>शिव</strong> सर्वोच्च शांतता आणि सर्वोच्च
+                तीव्रतेचे प्रतीक आहेत.
+            </p>
+
+            <p>
+                <strong>गंगा</strong> या सर्व आयामांना जोडणाऱ्या
+                अखंड प्रवाहाचे प्रतिनिधित्व करते.
+            </p>
+
+            <p>
+                विचार भावनेत रूपांतरित होतो.
+                भावना हेतूमध्ये रूपांतरित होते.
+                हेतू कृतीमध्ये रूपांतरित होतो.
+                कृती अनुभव निर्माण करते.
+                अनुभवातून नवीन विचार निर्माण होतो.
+            </p>
+
+            <div class="quote">
+                हीच गंगा कॉग्निटिव्ह इंटेलिजन्समागील
+                तात्त्विक पायाभरणी आहे.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HINDI -->
+
+    <div id="hindi" class="translation">
+
+        <div class="card">
+
+            <h2>गंगा कॉग्निटिव इंटेलिजेंस क्यों?</h2>
+
+            <h3>नाम के पीछे का दर्शन</h3>
+
+            <p>
+                भारतीय दर्शन के अनुसार मानव अस्तित्व की उत्पत्ति
+                <strong>पंचमहाभूतों</strong> से हुई है —
+                पृथ्वी, जल, अग्नि, वायु और आकाश।
+            </p>
+
+            <p>
+                मनुष्य के भीतर <strong>सात चक्रों</strong> की
+                संकल्पना है। प्रत्येक चक्र आंतरिक अस्तित्व के
+                एक अलग आयाम का प्रतिनिधित्व करता है। <br>
+                <strong>मूलाधार, स्वाधिष्ठान, मणिपुर, अनाहत, विशुद्ध, आज्ञा और सहस्रार। </strong>
+            </p>
+
+            <p>
+                लेकिन केवल अस्तित्व पर्याप्त नहीं है।
+                मनुष्य सोचता है, महसूस करता है, अनुभव करता है,
+                प्रश्न करता है, अर्थ समझता है और कर्म करता है।
+            </p>
+
+            <p>
+                <strong>नवरस</strong> उन विभिन्न आयामों का
+                प्रतिनिधित्व करते हैं जिनके माध्यम से मनुष्य
+                जीवन को अनुभव और समझता है। <br>
+                <strong>श्रृंगार, हास्य, करुण, रौद्र, वीर, भयानक, बीभत्स, अद्भुत और शांत।</strong>
+            </p>
+
+            <p>
+                <strong>शिव</strong> सर्वोच्च शांति और सर्वोच्च
+                तीव्रता दोनों का प्रतिनिधित्व करते हैं।
+            </p>
+
+            <p>
+                <strong>गंगा</strong> इन सभी आयामों को जोड़ने
+                वाले निरंतर प्रवाह का प्रतिनिधित्व करती है।
+            </p>
+
+            <p>
+                विचार भावना बनता है।
+                भावना उद्देश्य बनती है।
+                उद्देश्य कर्म बनता है।
+                कर्म अनुभव बनाता है।
+                अनुभव नया विचार बनाता है।
+            </p>
+
+            <div class="quote">
+                यही गंगा कॉग्निटिव इंटेलिजेंस की
+                दार्शनिक नींव है।
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SPANISH -->
+
+    <div id="spanish" class="translation">
+
+        <div class="card">
+
+            <h2>¿Por qué Ganga Cognitive Intelligence?</h2>
+
+            <h3>La filosofía detrás del nombre</h3>
+
+            <p>
+                Según el pensamiento filosófico de la India,
+                la existencia humana surge de los
+                <strong>Pancha Mahabhutas</strong>:
+                Tierra, Agua, Fuego, Aire y Espacio.
+            </p>
+
+            <p>
+                El ser humano se representa mediante los
+                <strong>siete chakras</strong>, cada uno reflejando
+                una dimensión diferente del ser interior.<br>
+                <strong>Raíz, Sacro, Plexo Solar, Corazón, Garganta, Tercer Ojo y Corona.</strong>
+            </p>
+
+            <p>
+                Pero existir no es suficiente.
+                El ser humano piensa, siente, experimenta,
+                pregunta, interpreta y actúa.
+            </p>
+
+            <p>
+                Los <strong>nueve rasas</strong> representan
+                diferentes dimensiones mediante las cuales
+                el ser humano percibe y procesa la vida.<br>
+                <strong>Amor, Risa, Compasión, Ira, Heroísmo, Miedo, Asco, Asombro y Paz.</strong>
+            </p>
+
+            <p>
+                <strong>Shiva</strong> representa el estado
+                más elevado de quietud y de intensidad.
+            </p>
+
+            <p>
+                <strong>Ganga</strong> representa el flujo continuo
+                que conecta estas dimensiones.
+            </p>
+
+            <p>
+                El pensamiento se convierte en emoción.
+                La emoción se convierte en intención.
+                La intención se convierte en acción.
+                La acción crea experiencia.
+                La experiencia crea un nuevo pensamiento.
+            </p>
+
+            <div class="quote">
+                Esta es la base filosófica de
+                <strong>Ganga Cognitive Intelligence.</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAPANESE -->
+
+    <div id="japanese" class="translation">
+
+        <div class="card">
+
+            <h2>なぜ「Ganga Cognitive Intelligence」なのか</h2>
+
+            <h3>その名前の背後にある哲学</h3>
+
+            <p>
+                インドの哲学的思想によれば、人間の存在は
+                <strong>パンチャ・マハーブータ</strong>、
+                すなわち地・水・火・風・空から生まれたと考えられています。
+            </p>
+
+            <p>
+                人間は<strong>七つのチャクラ</strong>によって
+                表現され、それぞれが内なる存在の異なる次元を表します。<br>
+                <strong>根, 仙骨, 太陽神経叢, ハート, 喉, 第三の目, 頭頂</strong>
+            </p>
+
+            <p>
+                しかし、ただ存在するだけでは十分ではありません。
+                人間は考え、感じ、経験し、問い、解釈し、行動します。
+            </p>
+
+            <p>
+                <strong>九つのラサ</strong>は、人間が人生を知覚し、
+                処理するためのさまざまな次元を表します。<br>
+                <strong>愛, 笑い, 慈悲, 怒り, 勇気, 恐怖, 嫌悪, 驚異, 平静</strong>
+            </p>
+
+            <p>
+                <strong>シヴァ</strong>は最高の静寂と最高の強烈さを象徴します。
+            </p>
+
+            <p>
+                <strong>ガンガー</strong>は、それらの異なる次元を
+                つなぐ継続的な流れを象徴します。
+            </p>
+
+            <p>
+                思考は感情になります。
+                感情は意図になります。
+                意図は行動になります。
+                行動は経験を生みます。
+                経験は新しい思考を生みます。
+            </p>
+
+            <div class="quote">
+                これが <strong>Ganga Cognitive Intelligence</strong>
+                の哲学的な基盤です。
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <strong>GCI</strong> · Ganga Cognitive Intelligence
+
+    <br>
+
+    A continuous flow from information to deeper intelligence.
+
+</footer>
+
+
+<!-- ================= BACK TO TOP ================= -->
+
+<button
+    id="backTop"
+    class="back-top"
+    onclick="window.scrollTo({top:0, behavior:'smooth'})"
+>
+    ↑
+</button>
+
+
+<script>
+
+/* ================= NAVIGATION ================= */
+
+function goTo(id) {
+
+    document
+        .getElementById(id)
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* ================= LANGUAGE SWITCHER ================= */
+
+function showLanguage(language, button) {
+
+    document
+        .querySelectorAll(".translation")
+        .forEach(section => {
+            section.classList.remove("active");
+        });
+
+    document
+        .getElementById(language)
+        .classList.add("active");
+
+    document
+        .querySelectorAll(".language-buttons button")
+        .forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+}
+
+
+/* ================= BACK TO TOP ================= */
+
+window.addEventListener("scroll", function() {
+
+    const button = document.getElementById("backTop");
+
+    if (window.scrollY > 600) {
+        button.classList.add("visible");
+    } else {
+        button.classList.remove("visible");
+    }
+
+});
+
+</script>
+
+</body>
+</html>
